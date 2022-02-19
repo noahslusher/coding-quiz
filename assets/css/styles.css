@@ -1,0 +1,153 @@
+* {
+ font-family: Arial, Helvetica, sans-serif;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ background-color: black;
+
+}
+
+header {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ padding: 2rem;
+}
+
+#high-scores {
+ color: white;
+ font-size: 2vw;
+ justify-content: start;
+ flex-direction: row;
+}
+
+h1 a {
+ text-decoration: none;
+}
+
+h1 a:visited {
+ color: white;
+ text-decoration: none;
+}
+
+#timer {
+ justify-content: flex-end;
+ color: white;
+ font-size: 2vw;
+}
+
+.container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#question-container {
+ background-color: #ededed;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ border: 0.5vw solid purple;
+ width: 75%;
+ max-width: 75%;
+ border-radius: 1vw;
+}
+
+#question {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ font-size: 2.5vw;
+ color: black;
+ padding-top: 3vh;
+ border-bottom: 0.2vw;
+ pa
+}
+
+.btn-grid {
+ display: flex;
+ flex-direction: column;
+ margin: 1rem;
+}
+
+.btn {
+ padding: 1vw;
+ background-color: purple;
+ border: 1px solid black;
+ margin: 0.5vw;
+ color: white;
+ border-radius: 0.5vw;
+ font-size: 2.1vw;
+}
+
+.btn:hover {
+ border-color: red;
+}
+
+.result-box {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-top: 1px solid black;
+ width: 80%;
+}
+
+#result {
+ font-size: 2vw;
+ padding: 0.7rem;
+ opacity: 50%;
+}
+
+.controls {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ background-color: #ededed;
+ color: black;
+ border: 0.5vw solid purple;
+ border-radius: 1vw;
+ font-size: 1.5vw;
+ padding: 2vw;
+ max-width: 75%;
+ width: 75%;
+
+}
+
+#start-btn, #next-btn {
+ margin-top: 5%;
+ padding: 2vw;
+ font-size: 3vw;
+}
+
+.btn-box {
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+}
+
+#answer-buttons {
+ display: flex;
+ flex-direction: column;
+ padding-top: 8vh;
+}
+
+.correct{
+ background-color: green;
+}
+
+
+.wrong {
+ background-color: red;
+}
+
+
+.hide {
+ display: none !important;
+}

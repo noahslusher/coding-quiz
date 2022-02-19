@@ -15,81 +15,35 @@
   <h1 id="high-scores">
    <a href="./highscores.html"> View High Scores</a>
   </h1>
-  <h2 id="timer"></h2>
+  <div id="timer"></div>
  </header>
-
+ 
 <!-- Body with 4 questions -->
-<div class="question-box">
- <h1 class="question">"CSS" stands for:</h1>
- <ol class="answer-box">
-  <button class="btn">
-   <li class="answer">Capital Style Sheets</li>
-  </button>
-  <button class="btn">
-   <li class="answer" id="true-answer">Cascading Style Sheets</li>
-  </button class="btn">
-  <button>
-   <li class="answer">Cascading Simple Styles</li>
-  </button>
-  <button class="btn">
-   <li class="answer">Capital Simple Sheets</li>
-  </button>
- </ol>
-</div>
+<section class="container">
+ <div class="hide" id="question-container">
+  <h2 id="question">Question</h2>
+   <div id="answer-buttons" class="btn-grid">
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button>
+    <button class="btn"></button> 
+   </div>
+   <button class="btn" id="next-btn" class="next-btn btn hide">Next</button>
+   <div class="result-box">
+    <div id="result">Result</div>
+   </div>
+ </div>
+  <div id="start-page" class="controls">
+   <p>Answer the following questions within the time limit. If you answer a question incorrectly, time will be subtracted from your overall time. Click Start Quiz to begin.</p>  
+   <br/>
+   <p>Good Luck!</p>
+    <div class="btn-box">
+     <button class="btn" id="start-btn" class="start-btn btn">Start Quiz</button>
+     
+    </div>
+  </div>
+</section>
 
-<div class="question-box">
- <h1 class="question">What does Javascript allow the user to do?</h1>
- <ol class="answer-box">
-  <button class="btn">
-   <li class="answer">Style the webpage</li>
-  </button>
-  <button class="btn">
-   <li class="answer">Write the HTML for the webpage.</li>
-  </button>
-  <button class="btn">
-   <li class="answer">Interact with the webpage.</li>
-  </button>
-  <button class="btn">
-   <li class="answer" id="true-answer">All of the above</li>
-  </button>
- </ol>
-</div>
-
-<div class="question-box">
- <h1 class="question">What does "HTML" stand for?</h1>
- <ol class="answer-box">
-  <button class="btn">
-   <li class="answer" id="true-answer">Hypertext Markup Language</li>
-  </button>
-  <button class="btn">
-   <li class="answer">High Text Making Language</li>
-  </button>
-  <button class="btn">
-   <li class="answer">Hello Talk Mummy Love</li>
-  </button>
-  <button class="btn">
-   <li class="answer">Hypertext Making Language</li>
-  </button>
- </ol>
-</div>
-
-<div class="question-box">
- <h1 class="question">What are the two most commonly used loops?</h1>
- <ol class="answer-box">
-  <button class="btn">
-   <li class="answer" id="true-answer">For and While</li>
-  </button>
-  <button class="btn">
-   <li class="answer">For and When</li>
-  </button>
-  <button class="btn">
-   <li class="answer">Fake and While</li>
-  </button>
-  <button class="btn">
-   <li class="answer">In and When</li>
-  </button>
- </ol>
-</div>
-
+<script src="./assets/js/script.js"></script>
 </body>
 </html>
