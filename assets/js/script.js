@@ -53,9 +53,10 @@ const resultEl = document.getElementById('result')
 const timerEl = document.getElementById('timer')
 var userScore = 0;
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-//const highScores = JSON.stringify(localStorage.setItem('highscores', ([])))
 console.log(highScores)
 var timeLeft = 25;
+
+
 
 // Timer function
 function countdown() {
@@ -104,15 +105,14 @@ function setNextQuestion() {
  if(questions.length === currentQuestionIndex){
   return endGame()
  }
- 
+ // calling show question function
  showQuestion(shuffledQuestions[currentQuestionIndex])
- 
 }
 
 // Create showQuestion function
 function showQuestion(questions) { 
- //const answerButtonEl = document.getElementById('answer-buttons')
  questionEl.innerText = questions.q
+// must remove answer buttons and readd them to each question
  answerButtonEl.remove()
  const answerButton = document.createElement('div')
  answerButton.setAttribute('id', 'answer-buttons')
@@ -127,7 +127,6 @@ function showQuestion(questions) {
   button.addEventListener('click', selectAnswer);
   answerButton.appendChild(button)
  })
- clearStatusClass()
 }
 
 
@@ -141,7 +140,7 @@ function selectAnswer(e) {
  Array.from(answerButtonEl.children).forEach(button => {
   setStatusClass(button, button.dataset.correct)
  })
-
+// add or subtract points for right and wrong answers
  if (correct) {
   userScore = userScore + 5;
 }
@@ -167,6 +166,7 @@ function endGame() {
 
 if (userScore >= 0) {
 }
+// defining high score array to add to local storage
 // High score array
 const score = {
  score: userScore,
@@ -184,11 +184,7 @@ window.location.replace("./highscores.html")
 
 
 
-
-
-
-
-
+// making the screen green or red for respective answers
 function setStatusClass(element, correct) {
  clearStatusClass(element)
  
