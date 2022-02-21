@@ -156,10 +156,10 @@ console.log(userScore)
 
 // EndGame function
 function endGame() {
+ window.alert("Your score is " + userScore)
  var userName = window.prompt("Please enter your initials")
  if (timeLeft <= 0) {
   userScore === 0
-  
  }
 
  if (userScore === null) {
@@ -167,16 +167,7 @@ function endGame() {
 }
 
 if (userScore >= 0) {
- questionContainerEl.classList.add('hide')
 }
-
-
-
-startButton.classList.remove('hide')
- startButton.innerText = 'Restart'
-}
-
-
 // High score array
 const score = {
  score: userScore,
@@ -188,6 +179,14 @@ highScores.push(score)
 highScores.sort ((a, b) => b.score - a.score)
 
 localStorage.setItem("highScores", JSON.stringify(highScores));
+
+
+
+window.location.replace("./highscores.html")
+}
+
+
+
 
 
 

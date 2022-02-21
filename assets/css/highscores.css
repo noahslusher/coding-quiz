@@ -12,16 +12,35 @@ body {
 
 header {
  display: flex;
- justify-content: center;
+ flex-direction: row;
  padding: 2rem;
+ justify-content: space-between;
 }
 
-header h1 {
+.highscore-header {
  color: black;
  padding: 2vw;
  background-color: white;
  border: 1vw solid purple;
+ align-items: center;
+ font-size: 2vw;
 }
+
+.java-return {
+ justify-content: flex-end;
+ color: white;
+ font-size: 2vw;
+}
+
+.java-return a:visited {
+ color: white;
+ text-decoration: none;
+}
+
+.java-return a {
+ text-decoration: none;
+}
+
 
 section {
  display: flex;
