@@ -127,8 +127,7 @@ function showQuestion(questions) {
   button.addEventListener('click', selectAnswer);
   answerButton.appendChild(button)
  })
- 
- 
+ clearStatusClass()
 }
 
 
@@ -179,8 +178,6 @@ highScores.push(score)
 highScores.sort ((a, b) => b.score - a.score)
 
 localStorage.setItem("highScores", JSON.stringify(highScores));
-
-
 
 window.location.replace("./highscores.html")
 }
