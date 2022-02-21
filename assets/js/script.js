@@ -43,7 +43,7 @@ let questions = [
 ]
 
 // Get elements
-const startButton = document.getElementById('start-btn');
+var startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const startPage = document.getElementById('start-page');
 const questionContainerEl = document.getElementById('question-container');
@@ -52,10 +52,13 @@ const answerButtonEl = document.getElementById('answer-buttons')
 const resultEl = document.getElementById('result')
 const timerEl = document.getElementById('timer')
 var userScore = 0;
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+//const highScores = JSON.stringify(localStorage.setItem('highscores', ([])))
+console.log(highScores)
+var timeLeft = 25;
 
 // Timer function
 function countdown() {
- var timeLeft = 25;
 
 var timeInterval = setInterval(function() {
  if (timeLeft >= 2) {
@@ -67,9 +70,9 @@ var timeInterval = setInterval(function() {
    timeLeft--;
  }
  else {
-   timerEl.textContent = " ";
+   window.alert('Time is up, you did not finish the quiz!')
    clearInterval(setInterval);
-  
+  location.reload();
    
  }
 
@@ -98,11 +101,12 @@ function startGame() {
 
 // setNextQuestion function
 function setNextQuestion() {
- //resetState()
- showQuestion(shuffledQuestions[currentQuestionIndex])
- if (questions[questions.length - 1]) {
-  //endGame()
+ if(questions.length === currentQuestionIndex){
+  return endGame()
  }
+ 
+ showQuestion(shuffledQuestions[currentQuestionIndex])
+ 
 }
 
 // Create showQuestion function
@@ -123,6 +127,8 @@ function showQuestion(questions) {
   button.addEventListener('click', selectAnswer);
   answerButton.appendChild(button)
  })
+ 
+ 
 }
 
 
@@ -142,26 +148,50 @@ function selectAnswer(e) {
 }
  else {
   userScore = userScore - 4;
+  timeLeft -= 5;
 }
-console.log(currentQuestionIndex)
+console.log(userScore)
 }
 
+
+// EndGame function
 function endGame() {
-
  var userName = window.prompt("Please enter your initials")
- var highscore = userScore
- if (highScore === null) {
-  highScore = 0;
+ if (timeLeft <= 0) {
+  userScore === 0
+  
+ }
+
+ if (userScore === null) {
+  userScore = 0;
 }
 
-if (userScore > highscore) {
- localStorage.setItem("highscore", userScore)
- localStorage.setItem("initials", userName)
+if (userScore >= 0) {
+ questionContainerEl.classList.add('hide')
 }
- startButton.classList.remove('hide')
+
+
+
+startButton.classList.remove('hide')
  startButton.innerText = 'Restart'
-
 }
+
+
+// High score array
+const score = {
+ score: userScore,
+ name: userName
+}
+console.log(score)
+ 
+highScores.push(score)
+highScores.sort ((a, b) => b.score - a.score)
+
+localStorage.setItem("highScores", JSON.stringify(highScores));
+
+
+
+
 
 function setStatusClass(element, correct) {
  clearStatusClass(element)
@@ -180,6 +210,7 @@ function setStatusClass(element, correct) {
 function clearStatusClass(element) {
  element.classList.remove('correct')
  element.classList.remove('wrong')
+
 }
 
 
